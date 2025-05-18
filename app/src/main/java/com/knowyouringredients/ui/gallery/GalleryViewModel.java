@@ -1,4 +1,4 @@
-package com.example.knowyouringredients.ui.gallery;
+package com.knowyouringredients.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

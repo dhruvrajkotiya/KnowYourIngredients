@@ -1,4 +1,4 @@
-package com.example.knowyouringredients;
+package com.knowyouringredients;
 
 import org.junit.Test;
 

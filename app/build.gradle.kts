@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.knowyouringredients"
+    namespace = "com.knowyouringredients"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.knowyouringredients"
+        applicationId = "com.knowyouringredients"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -35,15 +35,17 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
-    implementation(libs.navigation.ui)
+    implementation(libs.androidx.navigation.ui.v277)
+    implementation(libs.androidx.navigation.fragment.v277)
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }
