@@ -1,18 +1,6 @@
 This software is licensed under the GNU Affero General Public License v3.0 (AGPLv3),
 with the following additional restriction:
 
-Additional Term:
-This software and any derivatives may not be used, either directly
-or indirectly, for commercial purposes. Commercial purposes include,
-but are not limited to, using the software in any for-profit application,
-service, or product.
-
-You may not sublicense, resell, rent, lease, or use this software
-in a business or commercial environment without the explicit written
-consent of the original author.
-
----
-
 GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -687,3 +675,13 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+Additional Term:
+This software and any derivatives may not be used, either directly
+or indirectly, for commercial purposes. Commercial purposes include,
+but are not limited to, using the software in any for-profit application,
+service, or product.
+
+You may not sublicense, resell, rent, lease, or use this software
+in a business or commercial environment without the explicit written
+consent of the original author.
