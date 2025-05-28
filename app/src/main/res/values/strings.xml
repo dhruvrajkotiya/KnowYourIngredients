@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KnowYourIngredients</string>
+    <string name="enter_ingredients">Enter ingredients…</string>
+    <string name="submit">submit</string>
 </resources>
