@@ -1,5 +1,6 @@
 package com.myprojects.knowyouringredients;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -22,9 +23,12 @@ public class MainActivity extends AppCompatActivity {
         Button submit_button = findViewById(R.id.submit_button_id);
 
         submit_button.setOnClickListener(view -> {
-            String ingredients = ingredient_edit_text.getText().toString();
-            Log.d("Ingredients_list", ingredients);
+            String ingredients = ingredient_edit_text.getText().toString().trim();
+            Intent intent = new Intent(MainActivity.this, TableActivity.class);
+            intent.putExtra("ingredients", ingredients);
+            Log.d("ingredients", ingredients);
             Toast.makeText(MainActivity.this, ingredients, Toast.LENGTH_LONG).show();
+            startActivity(intent);
         });
     }
 }
