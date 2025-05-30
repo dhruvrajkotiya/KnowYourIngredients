@@ -29,7 +29,9 @@ android {
 }
 
 dependencies {
-
+    implementation libs.okhttp
+    implementation libs.appcompat.v170
+    implementation libs.material.v190
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
