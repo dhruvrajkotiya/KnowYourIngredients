@@ -3,4 +3,6 @@
     <string name="enter_ingredients">Enter ingredients list, separated by commas</string>
     <string name="submit">submit</string>
     <string name="fetching_answer_from_gemini">Fetching answer from Gemini...</string>
+    <string name="keyword">Keyword</string>
+    <string name="description">Description</string>
 </resources>

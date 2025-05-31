@@ -35,15 +35,4 @@
         app:layout_constraintTop_toBottomOf="@+id/ingredient_edit_text_id"
         app:layout_constraintVertical_bias="0.095" />
 
-    <TextView
-        android:id="@+id/answerText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fetching_answer_from_gemini"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submit_button_id" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

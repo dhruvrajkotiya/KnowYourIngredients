@@ -1,5 +1,6 @@
 package com.myprojects.knowyouringredients;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,23 +14,23 @@ public class TableActivity extends AppCompatActivity {
     LinearLayout linearLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
 
         linearLayout = findViewById(R.id.table_layout_id);
 
         String input = getIntent().getStringExtra("ingredients");
-        if(input != null && !input.isEmpty()){
+        if (input != null && !input.isEmpty()) {
             String[] values = input.split(",");
 
             // add header raw
             addRow("Text", "Description", true);
 
             // add data rows
-            for(String value : values){
+            for (String value : values) {
                 value = value.trim();
-                if(!value.isEmpty()) {
+                if (!value.isEmpty()) {
                     addRow(value, value, false);
                 }
             }
@@ -40,21 +41,39 @@ public class TableActivity extends AppCompatActivity {
     private void addRow(String text, String description, boolean isHeader) {
         LinearLayout row = new LinearLayout(this);
         row.setOrientation(LinearLayout.HORIZONTAL);
-        row.setPadding(8,8,8,8);
+        row.setPadding(8, 8, 8, 8);
 
         TextView textView1 = new TextView(this);
         TextView textView2 = new TextView(this);
 
+        String question = "US Politics";
+
+
         textView1.setText(text);
-        textView2.setText(description);
+        textView2.setText(R.string.fetching_answer_from_gemini);
+        GeminiClient.fetchAnswer(text, question, new GeminiClient.GeminiCallback() {
+            @Override
+            public void onResponse(String result) {
+                runOnUiThread(() -> textView2.setText(result));
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onError(String error) {
+                runOnUiThread(() -> textView2.setText("Error: " + error));
+            }
+        });
+
 
         textView1.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         textView2.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
-        textView1.setPadding(8,8,8,8);
-        textView2.setPadding(8,8,8,8);
+        textView1.setPadding(8, 8, 8, 8);
+        textView2.setPadding(8, 8, 8, 8);
 
-        if(isHeader){
+        if (isHeader) {
+            textView1.setText(R.string.keyword);
+            textView2.setText(R.string.description);
             textView1.setTypeface(null, Typeface.BOLD);
             textView2.setTypeface(null, Typeface.BOLD);
             textView1.setBackgroundColor(Color.BLACK);
