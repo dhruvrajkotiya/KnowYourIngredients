@@ -1,5 +1,6 @@
 package com.myprojects.knowyouringredients;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,24 +34,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, ingredients, Toast.LENGTH_LONG).show();
             startActivity(intent);
         });
-
-        answerText = findViewById(R.id.answerText);
-
-        // Hardcoded values
-        String keyword = "Solar system";
-        String question = "What are the main planets in the solar system and their order?";
-
-        GeminiClient.fetchAnswer(keyword, question, new GeminiClient.GeminiCallback() {
-            @Override
-            public void onResponse(String result) {
-                runOnUiThread(() -> answerText.setText(result));
-            }
-
-            @Override
-            public void onError(String error) {
-                runOnUiThread(() -> answerText.setText("Error: " + error));
-            }
-        });
-
     }
 }
