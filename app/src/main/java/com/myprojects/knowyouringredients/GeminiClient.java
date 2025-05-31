@@ -39,10 +39,9 @@ public class GeminiClient {
      * via the provided {@link GeminiCallback}.
 
      * @param prompt The main input text/prompt to send to the Gemini model.
-     * @param question This parameter is currently unused in the request construction but is kept for potential future use or context.
      * @param callback The callback to be invoked with the API response or error.
      */
-    public static void fetchAnswer(String prompt, String question, GeminiCallback callback) {
+    public static void fetchAnswer(String prompt, GeminiCallback callback) {
         OkHttpClient client = new OkHttpClient();
 
         try {

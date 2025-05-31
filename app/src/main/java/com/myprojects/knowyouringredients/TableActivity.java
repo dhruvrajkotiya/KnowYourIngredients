@@ -25,7 +25,7 @@ public class TableActivity extends AppCompatActivity {
             String[] values = input.split(",");
 
             // add header raw
-            addRow("Text", "Description", true);
+            addRow("Ingredient", "Description", true);
 
             // add data rows
             for (String value : values) {
@@ -46,23 +46,23 @@ public class TableActivity extends AppCompatActivity {
         TextView textView1 = new TextView(this);
         TextView textView2 = new TextView(this);
 
-        String question = "US Politics";
 
+        if(! isHeader){
+            textView1.setText(text);
+            textView2.setText(R.string.fetching_answer_from_gemini);
+            GeminiClient.fetchAnswer(text, new GeminiClient.GeminiCallback() {
+                @Override
+                public void onResponse(String result) {
+                    runOnUiThread(() -> textView2.setText(result));
+                }
 
-        textView1.setText(text);
-        textView2.setText(R.string.fetching_answer_from_gemini);
-        GeminiClient.fetchAnswer(text, question, new GeminiClient.GeminiCallback() {
-            @Override
-            public void onResponse(String result) {
-                runOnUiThread(() -> textView2.setText(result));
-            }
-
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onError(String error) {
-                runOnUiThread(() -> textView2.setText("Error: " + error));
-            }
-        });
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onError(String error) {
+                    runOnUiThread(() -> textView2.setText("Error: " + error));
+                }
+            });
+        }
 
 
         textView1.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
@@ -72,8 +72,8 @@ public class TableActivity extends AppCompatActivity {
         textView2.setPadding(8, 8, 8, 8);
 
         if (isHeader) {
-            textView1.setText(R.string.keyword);
-            textView2.setText(R.string.description);
+            textView1.setText(text);
+            textView2.setText(description);
             textView1.setTypeface(null, Typeface.BOLD);
             textView2.setTypeface(null, Typeface.BOLD);
             textView1.setBackgroundColor(Color.BLACK);
