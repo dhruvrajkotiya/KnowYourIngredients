@@ -24,7 +24,7 @@ public class GeminiClient {
 
     // IMPORTANT: It is strongly recommended to not hardcode API keys directly in the source code.
     // Consider using a backend proxy or secure build configurations for API key management in production environments.
-    private static final String API_KEY = "AIzaSyDDwF-KJ2VlQF9J0EgIR8WOU5ekWTeemKM";
+    private static final String API_KEY = "";
     private static final String ENDPOINT = "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
